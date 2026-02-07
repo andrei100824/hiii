@@ -1,96 +1,133 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Be My Valentine 💖</title>
+  <title>Happy Monthsary ❤️</title>
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: #ffe6eb;
-      color: #333;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #ffe6ea, #ffffff);
+      padding: 20px;
     }
+
+    .card {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
     h1 {
-      margin-top: 40px;
-      color: #ff4d6d;
+      color: #d6336c;
     }
-    .button {
-      font-size: 18px;
-      padding: 12px 30px;
-      margin: 10px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      color: white;
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
     }
-    .yes { background-color: #ff4d6d; }
-    .no { background-color: #999; }
-    img {
-      width: 90%;
-      max-width: 400px;
-      margin: 20px 0;
+
+    .photos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    .photos img {
+      width: 45%;
       border-radius: 15px;
     }
-    #afterYes { display: none; }
-    @media (max-width: 600px) {
-      h1 { font-size: 24px; }
-      .button { font-size: 16px; padding: 10px 25px; }
+
+    button {
+      font-size: 1.2em;
+      padding: 12px 25px;
+      margin: 10px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background-color: #adb5bd;
+      color: white;
+      position: relative;
+    }
+
+    @media (max-width: 480px) {
+      .photos img {
+        width: 100%;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <h1>Will you be my Valentine? 💖</h1>
+<audio id="bgMusic" loop>
+  <source src="love.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- Tap to Play Music -->
-  <audio id="bgMusic" loop>
-    <source src="love.mp3" type="audio/mpeg">
-  </audio>
+<button onclick="
+    const audio = document.getElementById('bgMusic');
+    audio.volume = 0.5; // set volume to 50%
+    audio.play().catch(e => alert('Music could not play: ' + e));
+    this.style.display='none';
+" 
+style="margin-top:20px; font-size:18px; padding:10px 20px; border-radius:10px; background:#ff4d6d; color:white; border:none; cursor:pointer;">
+    Tap to Play Music 🎵
+</button>
 
-  <button onclick="
-      const audio = document.getElementById('bgMusic');
-      audio.volume = 0.5;
-      audio.play().catch(e => alert('Music could not play: ' + e));
-      this.style.display='none';
-  " 
-  style="font-size:18px; padding:10px 25px; border-radius:10px; background:#ff4d6d; color:white; border:none; cursor:pointer; margin-top:20px;">
-      Tap to Play Music 🎵
-  </button>
+<div class="card">
+  <h1>Happy Monthsary, Baby 🤍 </h1>
 
-  <!-- Images -->
+  <p>
+    From the moment you came into my life, everything changed in the most beautiful way.
+    This page is my small reminder of how much I love you and how grateful I am to have you. I'm sorry 
+    for being too much makulit and inconsistent in something. So I would be happy if you will be my valentine.
+  </p>
+
   <div>
-    <img src="photo1.jpg" alt="Photo 1">
-    <img src="photo2.jpg" alt="Photo 2">
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
   </div>
 
-  <!-- YES / NO buttons -->
-  <div id="mainContent">
-    <button class="button yes" id="yesBtn">YES 💖</button>
-    <button class="button no" id="noBtn">NO 😢</button>
-  </div>
+  <h2>Will you be my Valentine? 🤍 </h2>
 
-  <!-- Content after YES -->
-  <div id="afterYes">
-    <h1>Yay! ❤️ You said YES!</h1>
-    <p>Happy Monthsary! 💕</p>
-  </div>
+  <button class="yes" onclick="yesClicked()">YES</button>
+  <button class="no" onclick="moveButton(this)">NO</button>
+</div>
 
-  <script>
-    // YES button behavior
-    document.getElementById('yesBtn').onclick = function() {
-      document.getElementById('mainContent').style.display = 'none';
-      document.getElementById('afterYes').style.display = 'block';
-      // music keeps playing
-    };
+<script>
+function moveButton(btn) {
+  btn.style.position = "absolute";
+  btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+  btn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+}
 
-    // NO button behavior
-    document.getElementById('noBtn').onclick = function() {
-      alert("Aww 😢 maybe next time!");
-    };
-  </script>
+function yesClicked() {
+  document.body.innerHTML = `
+    <div style="padding:40px;text-align:center;">
+      <h1 style="color:#d6336c;">YAY!!! 💕</h1>
+      <p style="font-size:1.2em;">
+        I love you so much ❤️ Thank you for being my Valentine.
+      </p>
+    </div>
+  `;
+}
+</script>
 
 </body>
 </html>
