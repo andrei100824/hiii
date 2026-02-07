@@ -33,19 +33,27 @@
       line-height: 1.6;
     }
 
-    .photos {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 15px;
-    }
+   .photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
 
-    .photos img {
-      width: 45%;
-      border-radius: 15px;
-    }
+.photos img {
+  width: 45%;       /* each photo takes 45% of container width */
+  max-width: 300px; /* ensures images don’t get too big */
+  border-radius: 15px;
+}
 
+@media (max-width: 480px) {
+  .photos img {
+    width: 100%;    /* stack vertically on mobile */
+    max-width: 100%;
+  }
+}
+    
     button {
       font-size: 1.2em;
       padding: 12px 25px;
@@ -99,7 +107,7 @@ style="margin-top:20px; font-size:18px; padding:10px 20px; border-radius:10px; b
     for being too much makulit and inconsistent in something. So I would be happy if you will be my valentine.
   </p>
 
- <div class="photos">
+<div class="photos">
   <img src="photo1.jpg" alt="Photo 1">
   <img src="photo2.jpg" alt="Photo 2">
 </div>
@@ -131,4 +139,5 @@ function yesClicked() {
 
 </body>
 </html>
+
 
