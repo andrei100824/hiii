@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Valentine’s Day ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #ffe6ea, #ffffff);
+      padding: 20px;
+    }
+
+    .card {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    h1 {
+      color: #d6336c;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .photos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    .photos img {
+      width: 45%;
+      border-radius: 15px;
+    }
+
+    button {
+      font-size: 1.2em;
+      padding: 12px 25px;
+      margin: 10px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background-color: #adb5bd;
+      color: white;
+      position: relative;
+    }
+
+    @media (max-width: 480px) {
+      .photos img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="music/love.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="
+    const audio = document.getElementById('bgMusic');
+    audio.volume = 0.5; // set volume to 50%
+    audio.play().catch(e => alert('Music could not play: ' + e));
+    this.style.display='none';
+" 
+style="margin-top:20px; font-size:18px; padding:10px 20px; border-radius:10px; background:#ff4d6d; color:white; border:none; cursor:pointer;">
+    Tap to Play Music 🎵
+</button>
+
+<div class="card">
+  <h1>Happy Monthsary, Baby 🤍 </h1>
+
+  <p>
+    From the moment you came into my life, everything changed in the most beautiful way.
+    This page is my small reminder of how much I love you and how grateful I am to have you. I'm sorry 
+    for being too much makulit and inconsistent in something. So I would be happy if you will be my valentine.
+  </p>
+
+  <div class="photos">
+    <img src="images/photo1.jpg">
+    <img src="images/photo2.jpg">
+  </div>
+
+  <h2>Will you be my Valentine? 🤍 </h2>
+
+  <button class="yes" onclick="yesClicked()">YES</button>
+  <button class="no" onclick="moveButton(this)">NO</button>
+</div>
+
+<script>
+function moveButton(btn) {
+  btn.style.position = "absolute";
+  btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+  btn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+}
+
+function yesClicked() {
+  document.body.innerHTML = `
+    <div style="padding:40px;text-align:center;">
+      <h1 style="color:#d6336c;">YAY!!! 💕</h1>
+      <p style="font-size:1.2em;">
+        I love you so much ❤️ Thank you for being my Valentine.
+      </p>
+    </div>
+  `;
+}
+</script>
+
+</body>
+</html>
